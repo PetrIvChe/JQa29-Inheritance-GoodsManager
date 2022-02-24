@@ -2,8 +2,6 @@ package ru.netology.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class BookTest {
     @Test
     public void shouldHaveAllFieldsAndMethodFromSuperClass() {
@@ -23,7 +21,7 @@ class BookTest {
     @Test
     public void shouldNotCastToDifferentClass() {
         Product product = new Book();
-        TShirt shirt = (TShirt) product;
+        Smartphone shirt = (Smartphone) product;
     }
 
     @Test
