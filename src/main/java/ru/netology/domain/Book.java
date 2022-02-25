@@ -17,7 +17,6 @@ public class Book extends Product {
     }
 
 
-
     public String getAuthor() {
         return author;
     }
@@ -41,9 +40,10 @@ public class Book extends Product {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Book book = (Book) o;
-        return author == book.author &&
-                nameOfBook == book.nameOfBook &&
-                Objects.equals(author, book.author);
+        return Objects.equals(author, book.author) &&
+               Objects.equals(nameOfBook, book.nameOfBook);
+
+
     }
 
     @Override
