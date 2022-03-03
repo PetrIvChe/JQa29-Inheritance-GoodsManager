@@ -18,7 +18,7 @@ public class ProductRepository {
         return items;
     }
 
-    public Product findById(int id) {
+    public Product findById() {
         for (Product item : items) {
             if (item.getId() == id) {
                 return item;
