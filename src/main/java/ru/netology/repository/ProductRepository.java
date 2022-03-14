@@ -3,8 +3,9 @@ package ru.netology.repository;
 import ru.netology.domain.Product;
 
 public class ProductRepository {
-    private Product[] items = new Product[0];
+    private Product[] items = new  Product[0] ;
 
+    //сохранять
     public void save(Product item) {
         int length = items.length + 1;
         Product[] tmp = new Product[length];
@@ -18,7 +19,19 @@ public class ProductRepository {
         return items;
     }
 
+
+    //получать все сохранённые
+    public Product[] getAll() {
+        Product[] result = new Product[items.length];
+        for (int i = 0; i < result.length; i++) {
+            int index = items.length - i - 1;
+            result[i] = items[index];
+        }
+        return result;
+    }
+
     public Product findById() {
+        int id = items.length;
         for (Product item : items) {
             if (item.getId() == id) {
                 return item;
@@ -27,6 +40,7 @@ public class ProductRepository {
         return null;
     }
 
+    //удалять по id
     public void removeById(int id) {
         int length = items.length - 1;
         Product[] tmp = new Product[length];
@@ -40,3 +54,5 @@ public class ProductRepository {
         items = tmp;
     }
 }
+
+

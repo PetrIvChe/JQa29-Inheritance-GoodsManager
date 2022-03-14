@@ -1,33 +1,30 @@
 package ru.netology.manager;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
-
-import org.mockito.Mockito;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
-
 import ru.netology.repository.ProductRepository;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
 class ProductManagerTest {
     private ProductRepository repository = Mockito.mock(ProductRepository.class);
     private ProductManager manager = new ProductManager(repository);
-    private Book first = new Book(1, "Paper Book", 308, "John R. R. Tolkien", "The Hobbit");
-    private Smartphone second = new Smartphone(2, "iPhone 11", 1000, "55000", "Apple");
-    private Book third = new Book(3, "Book", 300, "George Orwell", "1984");
-    private Smartphone fourth = new Smartphone(4, "Nokia", 17000, "1710", "Nokia");
-    private Book fifth = new Book(5, "School book", 365, "Chernyshova", "Enjoy Reading");
-    private Smartphone sixth = new Smartphone(6, "LG", 16000, "TCL 20 Pro", "LG");
-    private Smartphone seventh = new Smartphone(7, "Galaxy ", 1000, "S5", "Samsung");
-    private Smartphone eighth = new Smartphone(8, "Nokia", 18000, "1720", "Nokia");
-    private Book ninth = new Book(9, "Paper Book", 308, "John R. R. Tolkien", "The Hobbit 2");
+    private Book first = new Book(1, "John R. R. Tolkien", 308, "The Hobbit");
+    private Smartphone second = new Smartphone(2, "iPhone 11", 1000, "Apple");
+    private Book third = new Book(3, "George Orwell", 350, "1984");
+    private Smartphone fourth = new Smartphone(4, "Nokia", 17000, "Nokia");
+    private Book fifth = new Book(5, "Chernyshova", 365, "Enjoy Reading");
+    private Smartphone sixth = new Smartphone(6, "LG", 16000, "LG");
+    private Smartphone seventh = new Smartphone(7, "Galaxy ", 1000, "Samsung");
+    private Smartphone eighth = new Smartphone(8, "Nokia", 18000, "Nokia");
+    private Book ninth = new Book(9, "John R. R. Tolkien", 308, "The Hobbit 2");
 
     @BeforeEach
     public void createRepository() {
@@ -39,6 +36,7 @@ class ProductManagerTest {
     public void verifyMock() {
         verify(repository).findAll();
     }
+
 
     @Test
     public void shouldNoMatchesBook() {
@@ -63,7 +61,7 @@ class ProductManagerTest {
 
     @Test
     public void shouldOneMatchesBookName() {
-        Product[] actual = manager.searchBy("School book");
+        Product[] actual = manager.searchBy("Chernyshova");
         Product[] expected = new Product[]{fifth};
         assertArrayEquals(expected, actual);
     }

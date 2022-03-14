@@ -4,16 +4,16 @@ import java.util.Objects;
 
 public class Book extends Product {
     private String author;
-    private String nameOfBook;
+    //private String nameOfBook;
 
     public Book() {
         super();
     }
 
-    public Book(int id, String name, int price, String author, String nameOfBook) {
+    public Book(int id, String name, int price, String author   /*, String nameOfBook   */) {
         super(id, name, price);
         this.author = author;
-        this.nameOfBook = nameOfBook;
+        //this.nameOfBook = nameOfBook;
     }
 
 
@@ -25,14 +25,14 @@ public class Book extends Product {
         this.author = author;
     }
 
-    public String getNameOfBook() {
-        return nameOfBook;
-    }
+//    public String getNameOfBook() {
+//        return nameOfBook;
+//    }
 
-    public String setNameOfBook(String nameOfBook) {
-        this.nameOfBook = nameOfBook;
-        return nameOfBook;
-    }
+//    public String setNameOfBook(String nameOfBook) {
+//        this.nameOfBook = nameOfBook;
+//        return nameOfBook;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -40,22 +40,22 @@ public class Book extends Product {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Book book = (Book) o;
-        return Objects.equals(author, book.author) &&
-               Objects.equals(nameOfBook, book.nameOfBook);
+        return Objects.equals(author, book.author) /*&&
+               Objects.equals(nameOfBook, book.nameOfBook)*/;
 
 
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), author, nameOfBook);
+        return Objects.hash(super.hashCode(), author /*nameOfBook*/);
     }
 
     @Override
     public String toString() {
         return "Book{" +
                 "author='" + author + '\'' +
-                ", nameOfBook=" + nameOfBook +
+//                ", nameOfBook=" + nameOfBook +
                 '}';
     }
 }

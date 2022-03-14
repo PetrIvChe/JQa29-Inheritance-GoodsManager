@@ -16,16 +16,25 @@ public class ProductManager {
         repository.save(product);
     }
 
+    public Product[] getAll() {
+        return repository.findAll();
+    }
+
+    public void removeById(int id) {
+        repository.removeById(id);
+    }
+
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
-        for (Product product : repository.findAll()) {
-            if (matches(product, text)) {
+        for (Product items : repository.findAll()) {
+            if (matches(items, text)) {
                 Product[] tmp = new Product[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
-                tmp[tmp.length - 1] = product;
+                tmp[tmp.length - 1] = items;
                 result = tmp;
             }
         }
+
         return result;
     }
 

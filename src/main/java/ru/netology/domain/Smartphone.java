@@ -3,24 +3,26 @@ package ru.netology.domain;
 import java.util.Objects;
 
 public class Smartphone extends Product {
-    private String model;
+    //private String model;
     private String manufacturer;
-
-    public Smartphone(String model, String manufacturer) {
-        this.model = model;
-        this.manufacturer = manufacturer;
-    }
-
-    public Smartphone(int id, String name, int price, String model, String manufacturer) {
-        super(id, name, price);
-        this.model = model;
-        this.manufacturer = manufacturer;
-    }
 
     public Smartphone() {
 
         super();
     }
+
+    public Smartphone(/*String model,*/ String manufacturer) {
+       // this.model = model;
+        this.manufacturer = manufacturer;
+    }
+
+    public Smartphone(int id, String name, int price,/* String model,*/ String manufacturer) {
+        super(id, name, price);
+       // this.model = model;
+        this.manufacturer = manufacturer;
+    }
+
+
 
 
     @Override
@@ -29,30 +31,30 @@ public class Smartphone extends Product {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Smartphone smartphone = (Smartphone) o;
-        return Objects.equals(model, smartphone.model) &&
+        return /*Objects.equals(model, smartphone.model) &&*/
                 Objects.equals(manufacturer, smartphone.manufacturer);
     }
 
     @Override
     public String toString() {
         return "Smartphone{" +
-                "model='" + model + '\'' +
+               // "model='" + model + '\'' +
                 ", Manufacturer='" + manufacturer + '\'' +
                 '}';
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), model, manufacturer);
+        return Objects.hash(super.hashCode()/*, model, manufacturer*/);
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
+//    public String getModel() {
+//        return model;
+//    }
+//
+//    public void setModel(String model) {
+//        this.model = model;
+//    }
 
     public String getManufacturer() {
         return manufacturer;
