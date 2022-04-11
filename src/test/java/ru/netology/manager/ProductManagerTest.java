@@ -39,6 +39,14 @@ class ProductManagerTest {
 
 
     @Test
+    public void shouldGetAll() {
+        Product[] actual = manager.getAll();
+        Product[] expected = new Product[]{first, second, third, fourth, fifth, sixth, seventh, eighth, ninth};
+        assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
     public void shouldNoMatchesBook() {
         Product[] actual = manager.searchBy("Tolstoi ");
         Product[] expected = new Product[0];

@@ -3,7 +3,7 @@ package ru.netology.repository;
 import ru.netology.domain.Product;
 
 public class ProductRepository {
-    private Product[] items = new  Product[0] ;
+    private Product[] items = new Product[0];
 
     //сохранять
     public void save(Product item) {
@@ -20,6 +20,30 @@ public class ProductRepository {
     }
 
 
+    public ProductRepository() {
+        super();
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     //получать все сохранённые
     public Product[] getAll() {
         Product[] result = new Product[items.length];
@@ -30,8 +54,8 @@ public class ProductRepository {
         return result;
     }
 
-    public Product findById() {
-        int id = items.length;
+
+    public Product findById(int id) {
         for (Product item : items) {
             if (item.getId() == id) {
                 return item;
@@ -40,8 +64,9 @@ public class ProductRepository {
         return null;
     }
 
+
     //удалять по id
-    public void removeById(int id) {
+    public Product[] removeById(int id) {
         int length = items.length - 1;
         Product[] tmp = new Product[length];
         int index = 0;
@@ -52,7 +77,9 @@ public class ProductRepository {
             }
         }
         items = tmp;
+        return tmp;
     }
 }
+
 
 
