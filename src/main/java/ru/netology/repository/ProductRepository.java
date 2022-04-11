@@ -44,15 +44,15 @@ public class ProductRepository {
         return super.toString();
     }
 
-    //получать все сохранённые
-    public Product[] getAll() {
-        Product[] result = new Product[items.length];
-        for (int i = 0; i < result.length; i++) {
-            int index = items.length - i - 1;
-            result[i] = items[index];
-        }
-        return result;
-    }
+//    //получать все сохранённые
+//    public Product[] getAll() {
+//        Product[] result = new Product[items.length];
+//        for (int i = 0; i < result.length; i++) {
+//            int index = items.length - i - 1;
+//            result[i] = items[index];
+//        }
+//        return result;
+//    }
 
 
     public Product findById(int id) {
